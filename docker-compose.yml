@@ -1,0 +1,32 @@
+version: "3.8"
+
+services:
+  init-db:
+    image: python:3.11
+    container_name: init-db
+    volumes:
+      - ./shared:/app/shared
+    working_dir: /app/shared
+    command: python -c "from database import initialize_db; initialize_db()"
+
+  command-service:
+    build:
+      context: .
+      dockerfile: Dockerfile.command
+    ports:
+      - "8081:8081"
+    volumes:
+      - ./shared:/app/shared
+    depends_on:
+      - init-db
+
+  query-service:
+    build:
+      context: .
+      dockerfile: Dockerfile.query
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./shared:/app/shared
+    depends_on:
+      - init-db
