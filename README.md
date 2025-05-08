@@ -28,7 +28,7 @@ A arquitetura segue o padrão **CQRS (Command and Query Responsibility Segregati
 
 ## 🌐 Diagrama de Arquitetura
 
-![Diagrama de Arquitetura](./c472b504-d9f3-42a3-ae9b-ceeced61ee62.png)
+![Diagrama de Arquitetura](./arquitetura.png)
 
 ### Componentes:
 
