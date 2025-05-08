@@ -1,0 +1,31 @@
+curl -X POST http://127.0.0.1:8081/api/cupons   -H "Content-Type: application/json"   -d '{
+  "id": 100,
+  "code": "PROMO10",
+  "discount": 10.0,
+  "type": "PERCENT",
+  "expiration_date": "2025-05-17T07:23:59.999Z",
+  "usage_limit": 100
+}'
+
+
+curl -X PUT http://127.0.0.1:8081/api/cupons/1   -H "Content-Type: application/json"   -d '{
+  "code": "PROMO10",
+  "discount": 10.0,
+  "type": "PERCENT",
+  "expiration_date": "2025-05-17T07:23:59.999Z",
+  "usage_limit": 100
+}'
+
+curl -X DELETE http://127.0.0.1:8081/api/cupons/1   -H "Content-Type: application/json"   -d '{}'
+
+
+curl -X 'GET' \
+  'http://127.0.0.1:8080/api/cupons' \
+  -H 'accept: application/json'
+  
+  curl -X 'GET' \
+  'http://127.0.0.1:8080/api/cupons/PROMO10' \
+  -H 'accept: application/json'
+  
+  
+  
